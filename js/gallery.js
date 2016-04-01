@@ -49,7 +49,7 @@ var mRequest = new XMLHttpRequest();
 // Array holding GalleryImage objects (see below).
 var mImages = [];
 
-// Holds the retrived JSON information
+// Holds the retrieved JSON information
 var mJson;
 
 // URL for the JSON to load by default
@@ -79,21 +79,38 @@ window.addEventListener('load', function() {
 
 }, false);
 
-function GalleryImage() {
+function GalleryImage(imgLocation, description, date, imgPath) {
 	//implement me as an object to hold the following data about an image:
 	//1. location where photo was taken
-	this.location = "location";
+	this.imgLocation = imgLocation;
 	//2. description of photo
-	this.description = "description";
+	this.description = description;
 	//3. the date when the photo was taken
-	this.date = "date";
+	this.date = date;
 	//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
-	this.img = "img";
+	this.imgPath = imgPath;
 	}
+mRequest.onreadystatechange = function(){
+	if(mRequest.readyState == 4 && mRequest.status == 200){
+		try{
+			mJson = JSON.parse(mRequest.responseText);
+			console.log(mJson);
+		}
+		catch(err){
+			console.log(err.message)
+		}
+		
+	}
+	
+};
 	
 mRequest.open("GET", mURL,true);
 mRequest.send();
 
-var slideshow = {"pictures":[
-	{"source": "img/places/australiia.jpg"}
-]}
+
+
+$('.moreIndicator').click( function(){
+	$('.moreIndicator').css('.rot180');
+	
+});
+
