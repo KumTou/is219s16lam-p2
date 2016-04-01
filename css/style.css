@@ -38,11 +38,13 @@ body {
 .thumbnail {
 	position: relative;
 	box-shadow: 1px 3px 20px 0px;
-	width: 100%;
-	height:367px;
-	margin: 0 auto;
 }
 
+#photo{
+	height:394px;
+	width:500px;
+	
+}
 
 .banner {
 	text-align: center;
