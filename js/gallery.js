@@ -89,7 +89,7 @@ mRequest.onreadystatechange = function() {
 			mJson = JSON.parse(mRequest.responseText);
 			console.log(mJson);
 			
-			for(var i=0; i < mJson.images.length;i++)
+			for(var i=0; i < mJson.extra.length;i++)
 			{
 				mImages.push(new GalleryImage(mJson.extra[i].imgLocation,mJson.extra[i].description,mJson.extra[i].date,mJson.extra[i].imgPath));
 			}
