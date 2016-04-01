@@ -1,0 +1,34 @@
+{
+    "images": [
+        {
+            "imgPath": "img/extra/dragon1.jpg",
+            "imgLocation": "somewhere over in a fantasy world",
+            "description": "Dragon 1 ",
+            "date": "01/01/2016"
+        },
+        {
+            "imgPath": "img/extra/dragon2.jpg",
+            "imgLocation": "somewhere over in a fantasy world",
+            "description": "Dragon 2 ",
+            "date": "01/02/2016"
+        },
+		{
+            "imgPath": "img/extra/dragon3.jpg",
+            "imgLocation": "somewhere over in a fantasy world",
+            "description": "Dragon 3 ",
+            "date": "01/03/2016"
+        },
+		{
+            "imgPath": "img/extra/dragon4.jpg",
+            "imgLocation": "somewhere over in a fantasy world",
+            "description": "Dragon 4 ",
+            "date": "01/04/2016"
+        },
+		{
+            "imgPath": "img/extra/pusheen.gif",
+            "imgLocation": "somewhere in the Internet",
+            "description": "Pusheen Gangnam Style ",
+            "date": "01/05/2016"
+        }
+  ]
+}
