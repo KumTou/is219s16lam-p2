@@ -39,6 +39,9 @@ function swapPhoto() {
 	//Access the img element and replace its source
 	//with a new image from your images array which is loaded 
 	//from the JSON string
+	if(mCurrentIndex < 0){
+		mCurrentIndex += mImages.length;
+	}
 	$("#photo").attr('src', mImages[mCurrentIndex].imgPath);
 	$(".location").text("Location: "+mImages[mCurrentIndex].imgLocation);
 	$(".description").text("Description: "+mImages[mCurrentIndex].description);
@@ -51,8 +54,23 @@ function swapPhoto() {
 	console.log('swap photo');
 }
 
-mCurrentIndex++;
 
+
+//getQueryParams function
+
+function getQueryParams(qs){
+	qs = qs.split("+").join(" ");
+	var params = {},
+		tokens,
+		re = /[?&]?([^=]+)=([^&]*)/g;
+	while (tokens = re.exec(qs)){
+		params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+	}
+	return params;
+}
+
+//$_GET request variable
+var $_GET = getQueryParams(document.location.search);
 
 // XMLHttpRequest variable
 var mRequest = new XMLHttpRequest();
@@ -65,7 +83,14 @@ var mJson;
 
 // URL for the JSON to load by default
 // Some options for you are: images.json, images.short.json; you will need to create your own extra.json later
-var mUrl = 'images.json';
+var mUrl;
+if($_GET["json"] == undefined){
+	
+	mUrl = "images.json";
+}
+else{
+	mURL = $_GET["json"];
+}
 
 
 mRequest.onreadystatechange = function() { 
@@ -111,12 +136,13 @@ $(document).ready( function() {
 	});
 	
 	$("#nextPhoto").click(function (){
-		swapPhoto()
+		swapPhoto();
 	});
 	
 	$("#prevPhoto").click(function(){
-		mCurrentIndex = mCurrentIndex-2;
-		swapPhoto()
+		mCurrentIndex -= 2;
+		swapPhoto();
+		console.log(mCurrentIndex);
 	});
 });
 
