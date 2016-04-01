@@ -116,9 +116,6 @@ $(document).ready( function() {
 	
 	$("#prevPhoto").click(function(){
 		mCurrentIndex = mCurrentIndex-2;
-			if (mCurrentIndex <= 0){
-				mCurrentIndex == mImages.length-1;
-			}
 		swapPhoto()
 	});
 });
