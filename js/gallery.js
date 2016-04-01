@@ -110,6 +110,14 @@ $(document).ready( function() {
 		$(".details").slideToggle(1000);
 	});
 	
+	$("#nextPhoto").click(function (){
+		swapPhoto()
+	});
+	
+	$("#prevPhoto").click(function(){
+		mCurrentIndex = mCurrentIndex-2;
+		swapPhoto()
+	});
 });
 
 window.addEventListener('load', function() {
