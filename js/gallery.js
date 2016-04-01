@@ -71,15 +71,15 @@ var mImages = [];
 var mJson;
 //URL for the JSON to load by default
 //some options for you are: images.json, images.short.jason; you will need to create your own extra.json later
-var mURL;
 
-var mURL;
+
+var mUrl = "extra.json";
 if($_GET["json"] == undefined)
 {
-	mURL = "images.json";
+	mUrl = "images.json";
 }
 else{
-	mURL = $_GET["json"]; 
+	mUrl = $_GET["json"]; 
 }
 
 mRequest.onreadystatechange = function() { 
@@ -89,9 +89,9 @@ mRequest.onreadystatechange = function() {
 			mJson = JSON.parse(mRequest.responseText);
 			console.log(mJson);
 			
-			for(var i=0; i < mJson.extra.length;i++)
+			for(var i=0; i < mJson.images.length;i++)
 			{
-				mImages.push(new GalleryImage(mJson.extra[i].imgLocation,mJson.extra[i].description,mJson.extra[i].date,mJson.extra[i].imgPath));
+				mImages.push(new GalleryImage(mJson.images[i].imgLocation,mJson.images[i].description,mJson.images[i].date,mJson.images[i].imgPath));
 			}
 			
 		} catch(err) { 
@@ -100,7 +100,7 @@ mRequest.onreadystatechange = function() {
 	} 
 }; 
 	
-mRequest.open("GET",mURL, true); 
+mRequest.open("GET",mUrl, true); 
 mRequest.send();
 
 function makeGalleryImageOnloadCallback(galleryImage) {
