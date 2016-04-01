@@ -73,7 +73,7 @@ var mJson;
 //some options for you are: images.json, images.short.jason; you will need to create your own extra.json later
 
 
-var mUrl = "extra.json";
+var mUrl;
 if($_GET["json"] == undefined)
 {
 	mUrl = "images.json";
