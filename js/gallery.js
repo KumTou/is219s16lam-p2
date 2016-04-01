@@ -91,7 +91,7 @@ mRequest.onreadystatechange = function() {
 			
 			for(var i=0; i < mJson.images.length;i++)
 			{
-				mImages.push(new GalleryImage(mJson.images[i].imgLocation,mJson.images[i].description,mJson.images[i].date,mJson.images[i].imgPath));
+				mImages.push(new GalleryImage(mJson.extra[i].imgLocation,mJson.extra[i].description,mJson.extra[i].date,mJson.extra[i].imgPath));
 			}
 			
 		} catch(err) { 
